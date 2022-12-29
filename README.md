@@ -27,3 +27,7 @@ docker run -v ${PWD}:/output -e APP_NAME=boilerplate create-react-app
 ```
 **APP_NAME**: Sets the name of the React app that is created
 
+## Q and A
+
+**Question**: Why don't you publish these to [Docker Hub](https://hub.docker.com/)?
+Publishing these feels premature at this point in time. That is, however, a good idea.
