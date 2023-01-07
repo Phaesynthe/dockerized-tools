@@ -27,6 +27,17 @@ docker run -v ${PWD}:/output -e APP_NAME=boilerplate create-react-app
 ```
 **APP_NAME**: Sets the name of the React app that is created
 
+### OpenApi
+From this project root, run the following
+```bash
+docker build ./openapi -t open-api-builder
+```
+
+To build a specification distributable version and docs page, run the following from within the project with the specification:
+```bash
+docker run -v ${PWD}/spec:/spec -v ${PWD}/docs:/docs -e SPEC_SERVICE_NAME=demo -e SPEC_FILE_NAME=main.yml open-api-builder
+```
+
 ## Q and A
 
 **Question**: Why don't you publish these to [Docker Hub](https://hub.docker.com/)?
