@@ -38,6 +38,31 @@ To build a specification distributable version and docs page, run the following 
 docker run -v ${PWD}/spec:/spec -v ${PWD}/docs:/docs -e SPEC_SERVICE_NAME=demo -e SPEC_FILE_NAME=main.yml open-api-builder
 ```
 
+Output a template (example for `typescript-axios` template)
+```bash
+docker run --rm \
+    -v "${PWD}/templates:/templates" \
+    openapitools/openapi-generator-cli \
+    author template \
+    -g typescript-axios \
+    -o /templates/typescript-axios
+```
+Refer to The OpenAPI [Generators List](https://openapi-generator.tech/docs/generators/) for the valid options for the `-g` argument.
+
+Run generation with a specific template
+```bash
+docker run --rm \
+    -v "${PWD}/docs/dist:/local" \
+    -v "${PWD}/clients:/clients" \
+    -v "${PWD}/templates:/templates" \
+    openapitools/openapi-generator-cli \
+    generate \
+    -i /local/main.yml \
+    -g typescript-axios \
+    -t /templates/typescript-axios \
+    -o /clients/typescript-axios
+```
+
 ## Q and A
 
 **Question**: Why don't you publish these to [Docker Hub](https://hub.docker.com/)?
