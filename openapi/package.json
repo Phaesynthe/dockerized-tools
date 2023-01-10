@@ -1,0 +1,23 @@
+{
+  "name": "@phaesynthe/open-api",
+  "description": "A slim node app for building and bundling open-api spec definitions",
+  "version": "0.0.1-alpha",
+  "author": "Matthew W. Jackson <matthew@phaesynthe.com>",
+  "engines": {
+    "node": ">= 18.0.0",
+    "npm": ">=8.12.1"
+  },
+  "files": [],
+  "scripts": {
+    "lint": "redocly lint /spec/$SPEC_FILE_NAME",
+    "bundle": "redocly bundle /spec/$SPEC_FILE_NAME --output /docs/dist/$SPEC_FILE_NAME",
+    "build": "redocly build-docs /docs/dist/$SPEC_FILE_NAME --title=\"$SPEC_SERVICE_NAME\" -o /docs/dist/index.html",
+
+    "start": "npm run lint && npm run bundle && npm run build"
+  },
+  "dependencies": {
+    "@redocly/cli": "^1.0.0-beta.102"
+  },
+  "devDependencies": {
+  }
+}
